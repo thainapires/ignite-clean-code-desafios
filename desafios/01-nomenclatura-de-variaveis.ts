@@ -38,9 +38,9 @@ export default async function getGithubUserWithCategory(req, res) {
 
   const githubUserInfo = await githubUserInfoResponse.json()
 
-  const sortedUserCategories = githubUserCategories.sort((user, anotherUser) =>  user.followers - anotherUser.followers); 
+  const sortedUserCategoriesByFollowers = githubUserCategories.sort((user, anotherUser) =>  user.followers - anotherUser.followers); 
 
-  const githubUserCategory = sortedUserCategories.find(githubUserCategory => githubUserInfo.followers > githubUserCategory.followers)
+  const githubUserCategory = sortedUserCategoriesByFollowers.find(githubUserCategory => githubUserInfo.followers > githubUserCategory.followers)
 
   const githubUserWithCategory = {
     githubUsername,
